@@ -32,6 +32,15 @@ public class Line implements Printable<Line> {
         return width.get();
     }
 
+	public boolean isMoveableToLeft(int position) {
+        return position != 0 && connections.get(position - 1).get();
+    }
+
+    public boolean isMoveableToRight(int position) {
+        return position != width() - 1 && connections.get(position).get(); 
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

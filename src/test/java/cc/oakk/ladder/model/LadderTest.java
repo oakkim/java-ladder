@@ -16,4 +16,18 @@ public class LadderTest {
         ladder.initLines(l -> new int[] { 1, 3 }).getLines()
                 .forEach(v -> assertThat(v).isEqualTo(comparingLine));
     }
+
+    @Test
+    public void moveTrace() {
+        Ladder ladder = new Ladder(5, 5);
+        ladder.initLines(l -> new int[] { 1, 3 });
+        assertThat(ladder.moveTrace(new Trace(0))).isEqualTo(new Trace(0));
+        assertThat(ladder.moveTrace(new Trace(1))).isEqualTo(new Trace(2));
+        assertThat(ladder.moveTrace(new Trace(2))).isEqualTo(new Trace(1));
+        assertThat(ladder.moveTrace(new Trace(3))).isEqualTo(new Trace(4));
+        assertThat(ladder.moveTrace(new Trace(4))).isEqualTo(new Trace(3));
+    }
+
+
+
 }
