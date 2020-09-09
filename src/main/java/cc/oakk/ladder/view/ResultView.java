@@ -1,6 +1,7 @@
 package cc.oakk.ladder.view;
 
-import cc.oakk.ladder.model.Person;
+import cc.oakk.ladder.model.person.Person;
+import cc.oakk.ladder.model.result.Result;
 import cc.oakk.ladder.model.ladder.dto.LadderDto;
 import cc.oakk.ladder.model.line.dto.LineDto;
 import cc.oakk.ladder.view.printer.Printer;
@@ -13,17 +14,25 @@ public class ResultView {
 
     private final Printer<Person> personPrinter;
     private final Printer<LineDto> linePrinter;
+    private final Printer<Result> resultPrinter;
     private final Printer<String> stringPrinter;
 
-    public ResultView(Printer<Person> personPrinter, Printer<LineDto> linePrinter) {
+    public ResultView(Printer<Person> personPrinter,
+                      Printer<LineDto> linePrinter,
+                      Printer<Result> resultPrinter) {
         this.personPrinter = personPrinter;
         this.linePrinter = linePrinter;
+        this.resultPrinter = resultPrinter;
         this.stringPrinter = StandardPrinter.getInstance();
     }
 
-    public ResultView(Printer<Person> personPrinter, Printer<LineDto> linePrinter, Printer<String> stringPrinter) {
+    public ResultView(Printer<Person> personPrinter,
+                      Printer<LineDto> linePrinter,
+                      Printer<Result> resultPrinter,
+                      Printer<String> stringPrinter) {
         this.personPrinter = personPrinter;
         this.linePrinter = linePrinter;
+        this.resultPrinter = resultPrinter;
         this.stringPrinter = stringPrinter;
     }
 

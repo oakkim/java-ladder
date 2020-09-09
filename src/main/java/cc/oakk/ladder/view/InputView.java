@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class InputView {
     public static final String PERSON_DELIMITER = ",";
+    public static final String RESULT_DELIMITER = ",";
     public static final String LINE_BREAK = System.lineSeparator();
 
     private final Scanner scanner;
@@ -26,6 +27,12 @@ public class InputView {
         stringPrinter.print("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)" + LINE_BREAK);
         String line = scanner.nextLine();
         return line.split(PERSON_DELIMITER);
+    }
+
+    public String[] getResultNames() {
+        stringPrinter.print("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)" + LINE_BREAK);
+        String line = scanner.nextLine();
+        return line.split(RESULT_DELIMITER);
     }
 
     public int getLadderHeight() {

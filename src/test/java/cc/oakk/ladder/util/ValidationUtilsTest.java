@@ -7,12 +7,24 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ValidationUtilsTest {
+    @Test
+    public void throwIfNull() {
+        assertThatIllegalArgumentException().isThrownBy(() -> ValidationUtils.throwIfNull(null));
+    }
+
+    @Test
+    public void throwIfEmptyList() {
+        assertThatIllegalArgumentException().isThrownBy(() -> ValidationUtils.throwIfEmptyList(null));
+        assertThatIllegalArgumentException().isThrownBy(() -> ValidationUtils.throwIfEmptyList(new ArrayList<>()));
+    }
+
     @ParameterizedTest()
     @CsvSource(value = { "10:11", "5:-5", "10:10", "5:-1", "10:50" }, delimiter = ':')
     public void throwIfOutOfArrayRange_ShouldThrow(int length, int index) {

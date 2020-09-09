@@ -1,7 +1,7 @@
 package cc.oakk.ladder;
 
 import cc.oakk.ladder.controller.LadderGame;
-import cc.oakk.ladder.model.Person;
+import cc.oakk.ladder.model.person.Person;
 import cc.oakk.ladder.model.line.dto.LineDto;
 import cc.oakk.ladder.view.InputView;
 import cc.oakk.ladder.view.ResultView;
@@ -15,7 +15,7 @@ public class LadderApplication {
         Printer<Person> personPrinter = new PersonPrinter();
         
         InputView inputView = new InputView();
-        ResultView resultView = new ResultView(personPrinter, linePrinter);
+        ResultView resultView = new ResultView(personPrinter, linePrinter, null);
         LadderGame game = new LadderGame(inputView, resultView);
         game.start();
     }
